@@ -79,6 +79,20 @@ Once ready, you can access the application at the forwarded port URL provided in
    ```
    Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+## Photo downloads
+
+- Gallery download controls fetch `Photo.url` as an image Blob and initiate a browser download without navigating away. Filenames use a sanitized photo title and a MIME-derived extension. Each photo has loading, error, and retry feedback. Initiating a download does not confirm that the browser saved it; mock download counts remain unchanged.
+- Place local images under `public/` and update `Photo.url` in `src/lib/mock-photo-data.ts` (for example, `public/photos/demo-photo.png` maps to `/photos/demo-photo.png`). Remote HTTP(S) sources must allow browser CORS; downloads use no server proxy or credentials. Supported formats are JPEG, PNG, WebP, GIF, AVIF, TIFF, and BMP; unsupported MIME types and empty responses are rejected.
+- The first mock photo, **Astronaut Portrait**, points to `/photos/demo-photo.png`: a public-domain NASA image of astronaut Eileen Collins, retrieved from [scikit-image v0.24.0](https://raw.githubusercontent.com/scikit-image/scikit-image/v0.24.0/skimage/data/astronaut.png). Its tags are `portrait`, `space`, and `science`, and its photographer credit is NASA. Gallery previews remain gradients. Other placeholder JPEG paths intentionally remain unavailable to demonstrate HTTP failures and retry.
+
+### Focused download tests
+
+From the repository root after installing dependencies, use Node.js 18+ and the existing TypeScript compiler with Node's built-in test runner (no additional framework):
+
+```bash
+npx tsc src/lib/download-photo.ts src/lib/download-photo.test.ts --outDir /tmp/galleryapp-download-tests --module commonjs --target ES2017 --esModuleInterop --strict --skipLibCheck && node --test /tmp/galleryapp-download-tests/download-photo.test.js
+```
+
 ## Project Structure
 
 ```bash

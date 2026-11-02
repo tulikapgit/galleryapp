@@ -13,14 +13,13 @@ export interface Photo {
 export const mockPhotos: Photo[] = [
   {
     id: '1',
-    url: '/placeholder-1.jpg',
-    title: 'Sunset Landscape',
-    tags: ['landscape', 'sunset', 'nature'],
+    url: '/photos/demo-photo.png',
+    title: 'Astronaut Portrait',
+    tags: ['portrait', 'space', 'science'],
     likes: 124,
     downloads: 45,
     views: 1205,
-    photographer: 'John Doe',
-    dateTaken: '2024-01-15'
+    photographer: 'NASA'
   },
   {
     id: '2',
