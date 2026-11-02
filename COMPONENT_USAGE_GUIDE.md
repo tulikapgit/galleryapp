@@ -154,6 +154,15 @@ export default function AdminPage() {
 
 ### 4. Upload Page
 
+The upload settings use `TagAutocomplete` from
+`@/components/upload/TagAutocomplete` with an `id` matching the tags label's
+`htmlFor`. It uses `AVAILABLE_TAGS` from `src/lib/mock-tag-data.ts` to suggest
+case-insensitive prefix matches for the final comma-separated tag (for example,
+`w` suggests `wedding` and `wildlife`). Click a suggestion, or use Up/Down and
+Enter to select it; Escape or leaving the input dismisses suggestions. Selection
+preserves earlier tags and appends a comma for the next tag. Already-entered tags
+are excluded from suggestions, and custom tags remain supported.
+
 ```tsx
 export default function UploadPage() {
   return (

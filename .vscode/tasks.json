@@ -14,6 +14,17 @@
 			"problemMatcher": [
 				"$tsc"
 			]
+		},
+		{
+			"label": "Start photo gallery",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"dev"
+			],
+			"isBackground": true,
+			"problemMatcher": []
 		}
 	]
 }

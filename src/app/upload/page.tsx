@@ -1,5 +1,6 @@
 import { Settings, Users, Globe } from "lucide-react";
 import { UploadZone } from "@/components/upload/UploadZone";
+import { TagAutocomplete } from "@/components/upload/TagAutocomplete";
 import { SectionContainer, SectionTitle, FeatureCard, Hero } from "@/components/ui";
 
 export default function UploadPage() {
@@ -78,14 +79,10 @@ export default function UploadPage() {
 
             {/* Tags */}
             <div className="md:col-span-2">
-              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+              <label htmlFor="upload-tags" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                 Tags (comma-separated)
               </label>
-              <input
-                type="text"
-                placeholder="wedding, portrait, outdoor, professional..."
-                className="form-input"
-              />
+              <TagAutocomplete id="upload-tags" />
             </div>
 
             {/* Copyright */}
