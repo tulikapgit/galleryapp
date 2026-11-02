@@ -87,4 +87,4 @@ src/
 ├── components/          # Reusable React components
 ├── lib/                 # Utility functions and helpers
 demos/                   # Demo guides and templates
-```
+```# galleryapp
